@@ -1,0 +1,60 @@
+/* style.css */
+
+/* Reset minimal */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --bg: #000;
+  --text: #fff;
+  --font-size: clamp(1.5rem, 4vw, 4rem);
+  --duration: 3.5s; /* durée totale d'un cycle */
+}
+
+/* Fond noir pleine page */
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Centre vertical/horizontal */
+.center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Le texte animé */
+.fade-text {
+  font-size: var(--font-size);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  /* animation : fadeInOut durée timing iteration */
+  animation: fadeInOut var(--duration) ease-in-out infinite;
+  /* améliorer rendu sur certains navigateurs */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keyframes: 0% transparent -> 25% opaque -> 75% opaque -> 100% transparent
+   on garde une partie visible au milieu pour un fondu progressif */
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateY(6px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  85%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-6px); }
+}
+
+/* Préférence pour réduire les animations (accessibilité) */
+@media (prefers-reduced-motion: reduce) {
+  .fade-text {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
