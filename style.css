@@ -7,7 +7,7 @@ body {
   align-items: center;
   background-color: black;
   color: white;
-  font-family: 'Tourney', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 3rem;
 }
 
@@ -20,5 +20,6 @@ body {
 .fade {
   animation: fondu 3s infinite;
 }
+
 
 
