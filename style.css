@@ -1,23 +1,22 @@
+/* style.css */
 body {
-  background: #000;
+  margin: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.fondu {
-  color: #fff;
+  background-color: black;
+  color: white;
   font-family: Arial, sans-serif;
-  font-size: 2rem;
-  /* Animation : fondu d'opacité */
-  animation: fondu 3s ease-in-out infinite;
+  font-size: 3rem;
 }
 
-/* Définition des étapes de l’animation */
 @keyframes fondu {
   0%   { opacity: 0; }
   50%  { opacity: 1; }
   100% { opacity: 0; }
+}
+
+.fade {
+  animation: fondu 3s infinite;
 }
