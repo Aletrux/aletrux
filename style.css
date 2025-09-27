@@ -1,14 +1,18 @@
-/* style.css */
 body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: black;
   color: white;
-  font-family: 'Tourney', sans-serif;
-  font-size: 3rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes rainbow {
+  0%   { color: red; }
+  14%  { color: orange; }
+  28%  { color: yellow; }
+  42% { color: rgb(0, 255, 0); }
+  56% { color: rgb(0, 179, 255);}
+  70% { color: blue;}
+  86% { color: purple;}
+  100% { color: white;}  
 }
 
 @keyframes fondu {
@@ -17,10 +21,45 @@ body {
   100% { opacity: 0; }
 }
 
+@keyframes apparition {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.apparition {
+  animation-name: apparition;
+  animation-duration: var(--duree,1s);
+  animation-delay: var(--delai,0s);
+  animation-fill-mode: forwards;
+}
+.rainbow {
+  animation: rainbow var(--duree,1s) infinite;
+}
+
 .fade {
   animation: fondu 3s infinite;
 }
 
+.wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 20%;
+  margin-right: 20%
+}
 
+.page {
+  display: flex;
+  min-height: 100vh;
+}
 
+.menu {
+  width: 200px;
+  color: white;
+  padding: 20px;
+  border-right: 2px solid rgb(255, 255, 255);
+}
 
+.content {
+  flex: 1;
+  padding: 20px;
+}
