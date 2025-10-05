@@ -34,10 +34,21 @@
   to   { height: 100vh; }
 }
 
+html { font-size: 16px; }
+
+@media (max-width: 768px) {
+  html { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  html { font-size: 10px; }
+}
+
 body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
   background-color: black;
   color: white;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .apparition {
@@ -62,37 +73,61 @@ body {
 }
 
 .wrapper {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-left: 20%;
-  margin-right: 20%
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .page {
-  display: flex;
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: wrap;
 }
 
 .menu {
   position: relative;
-  width: 200px;
-  color: white;
-  padding: 20px;
+    flex: 0 0 20%;
+    color: white;
+    padding: 20px;
 }
 
 .menu::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 250px;
-  right: 0;
+  left: 100%;
   width: 2px;
-  height: 0;
+  height: 100%;
   background-color: white;
   animation: drawLine 2s forwards;
   animation-delay: 0.5s;
 }
 
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .content {
+        flex: 0 0 100%;
+    }
+}
+
 .content {
-  flex: 1;
-  padding: 20px;
+    flex: 1;
+    padding: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+p {
+    overflow-wrap: break-word;
 }
