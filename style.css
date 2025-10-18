@@ -10,6 +10,16 @@ body {
   color: #ecf3f6;
 }
 
+html{
+  font-size:16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -146,20 +156,30 @@ nav {
   }
 }
 
-.box1 {
-  position: relative;          /* nécessaire pour que ::before se positionne dedans */
+.box-container{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
+.box {
+  position: relative;
   border-style: solid;
   display: block;
   border-radius: 5px;
   margin: 50px auto 0 auto;
   padding: 10px;
-  max-width: 700px;
+  height: 115px;
+  max-width: 300px;
+  flex: 1 1 250px;
   border-color: var(--border-color, white);
   transition: box-shadow 0.4s ease, transform 0.4s ease;
   overflow: hidden;
 }
 
-.box1::before {
+.box::before {
   content: "";
   position: absolute;
   inset: 0; 
@@ -171,12 +191,12 @@ nav {
   z-index: 0;
 }
 
-.box1 * {
+.box * {
   position: relative;
   z-index: 1;
 }
 
-.box1.shadow-drop-center:hover {
+.box.shadow-drop-center:hover {
   box-shadow: 0 0 20px 0 var(--border-color, white);
   transform: translateY(-5px);
 }
